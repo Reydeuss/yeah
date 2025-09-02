@@ -9,7 +9,7 @@ parser = argparse.ArgumentParser(
 )
 
 parser.add_argument("command")
-parser.add_argument("keywords")
+parser.add_argument("keywords", nargs='?', default=None)
 
 args = parser.parse_args()
 
