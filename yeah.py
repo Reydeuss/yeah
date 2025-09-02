@@ -13,7 +13,11 @@ parser.add_argument("keywords")
 
 args = parser.parse_args()
 
-if args.command == "search" and args.keywords:
+if args.command == "search":
+    if not args.keywords:
+        print("Aborting operation due to bad usage.")
+        print("Format: yeah search <keywords>")
+
     rpc_url = f'https://aur.archlinux.org/rpc/v5/search/{args.keywords}'
     r = requests.get(rpc_url)
     data = r.json()
