@@ -8,7 +8,7 @@ parser = argparse.ArgumentParser(
     description="A custom AUR helper written in Python",
 )
 
-parser.add_argument("command", description="Operation command - e.g. search, install, etc. Required.")
+parser.add_argument("command")
 parser.add_argument("keywords")
 
 args = parser.parse_args()
