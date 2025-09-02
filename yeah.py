@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 
 import argparse
+import sys
 import requests
 
 parser = argparse.ArgumentParser(
@@ -17,6 +18,7 @@ if args.command == "search":
     if not args.keywords:
         print("Aborting operation due to bad usage.")
         print("Format: yeah search <keywords>")
+        sys.exit(1)
 
     rpc_url = f'https://aur.archlinux.org/rpc/v5/search/{args.keywords}'
     r = requests.get(rpc_url)
