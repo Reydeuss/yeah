@@ -6,7 +6,6 @@ import subprocess
 import sys
 
 from aur import rpc
-
 from pathlib import Path
 
 parser = argparse.ArgumentParser(
