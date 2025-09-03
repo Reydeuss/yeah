@@ -4,7 +4,8 @@ import argparse
 import os
 import subprocess
 import sys
-import requests
+
+from aur import rpc
 
 from pathlib import Path
 
@@ -24,9 +25,7 @@ if args.command == "search":
         print("Format: yeah search <keywords>")
         sys.exit(1)
 
-    rpc_url = f'https://aur.archlinux.org/rpc/v5/search/{args.keywords}'
-    r = requests.get(rpc_url)
-    data = r.json()
+    data = rpc.search(args.keywords)
     count = data['resultcount']
     print(f'Got {count} results.')
 
@@ -39,9 +38,7 @@ if args.command == "search":
         print('Maybe try another keyword?')
 
 def check_package_exists(package_name: str):
-    rpc_url = f'https://aur.archlinux.org/rpc/v5/info/{package_name}'
-    r = requests.get(rpc_url)
-    data = r.json()
+    data = rpc.info(package_name)
 
     return data['resultcount'] > 0
 
