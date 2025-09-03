@@ -30,7 +30,7 @@ if args.command == "search":
 
     if count > 0:
         for result in data['results']:
-            print(f'aur/{result['Name']} {result['Version']}')
+            print(f'aur/{result["Name"]} {result["Name"]}')
             print(f'{result["Description"]}')
             print('') # Newline
     else:
