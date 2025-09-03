@@ -5,6 +5,8 @@ import os
 import subprocess
 import sys
 
+import commands
+
 from aur import rpc
 from pathlib import Path
 
@@ -19,22 +21,14 @@ parser.add_argument("keywords", nargs='?', default=None)
 args = parser.parse_args()
 
 if args.command == "search":
-    if not args.keywords:
+    term = args.keywords
+
+    if not term:
         print("Aborting operation due to bad usage.")
         print("Format: yeah search <keywords>")
         sys.exit(1)
 
-    data = rpc.search(args.keywords)
-    count = data['resultcount']
-    print(f'Got {count} results.')
-
-    if count > 0:
-        for result in data['results']:
-            print(f'aur/{result["Name"]} {result["Name"]}')
-            print(f'{result["Description"]}')
-            print('') # Newline
-    else:
-        print('Maybe try another keyword?')
+    commands.search.run(term)
 
 def check_package_exists(package_name: str):
     data = rpc.info(package_name)
