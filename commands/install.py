@@ -28,5 +28,4 @@ def run(pkgname: str):
     shell.git_clone(git_url)
 
     os.chdir(pkgname)
-    cmd = 'makepkg -si'
-    subprocess.run(cmd.split())
+    shell.run_makepkg()
