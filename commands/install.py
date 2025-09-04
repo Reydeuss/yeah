@@ -1,3 +1,6 @@
+import os
+import subprocess
+
 def check_package_exists(package_name: str):
     data = rpc.info(package_name)
 
