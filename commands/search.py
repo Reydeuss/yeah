@@ -3,6 +3,7 @@ from aur import rpc
 def _display_search_result(result):
     print(f'aur/{result["Name"]} {result["Name"]}')
     print(f'{result["Description"]}')
+    print('') # Print newline
 
 def run(term: str):
     data = rpc.search(term)
