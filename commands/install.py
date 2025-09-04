@@ -1,6 +1,9 @@
 import os
 import subprocess
 
+from aur import rpc
+from pathlib import Path
+
 def check_package_exists(package_name: str):
     data = rpc.info(package_name)
 
