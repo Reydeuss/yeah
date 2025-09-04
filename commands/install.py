@@ -4,6 +4,7 @@ import sys
 
 from aur import rpc
 from pathlib import Path
+from utils import shell
 
 def check_package_exists(package_name: str):
     data = rpc.info(package_name)
@@ -24,8 +25,7 @@ def run(pkgname: str):
     os.chdir(yeah_dir)
 
     git_url = f'https://aur.archlinux.org/{pkgname}.git'
-    cmd = f'git clone {git_url}'
-    subprocess.run(cmd.split())
+    shell.git_clone(git_url)
 
     os.chdir(pkgname)
     cmd = 'makepkg -si'
