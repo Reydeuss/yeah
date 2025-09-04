@@ -1,5 +1,6 @@
 import os
 import subprocess
+import sys
 
 from aur import rpc
 from pathlib import Path
