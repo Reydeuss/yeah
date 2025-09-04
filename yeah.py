@@ -38,4 +38,4 @@ if args.command == "install":
 
     pkgname = args.keywords
 
-    commands.install.run()
+    commands.install.run(pkgname)
