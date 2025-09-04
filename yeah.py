@@ -5,9 +5,6 @@ import sys
 
 import commands
 
-from aur import rpc
-from pathlib import Path
-
 parser = argparse.ArgumentParser(
     prog="yeah",
     description="A custom AUR helper written in Python",
